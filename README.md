@@ -20,4 +20,28 @@ Este é um sistema web desenvolvido para organizar, registrar e pesquisar os ate
 
 ## 🗄️ Estrutura do Banco de Dados
 ```sql
--- Cole aqui o seu comando CREATE TABLE para que outra pessoa possa testar o seu sistema!
+
+create database sistema_chamados;
+
+Use sistema_chamados;
+
+create table chamados(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	 usuario_auxiliado VARCHAR(255) NOT NULL, 
+	 setor VARCHAR(255) NOT null, 
+	 problema_relatado TEXT NOT NULL,
+	 solucao_problema TEXT NOT NULL,
+	 realizado TINYINT(1) DEFAULT 0,
+	 data_atendimento DATETIME DEFAULT CURRENT_TIMESTAMP
+ );
+ 
+ Use sistema_chamados;
+ SELECT * FROM chamados;
+ 
+ 
+ SET sql_safe_updates = 0;
+ 
+ Use sistema_chamados;
+ UPDATE chamados SET realizado = 0 WHERE realizado IS NULL;
+ 
+  SET sql_safe_updates = 1;

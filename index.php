@@ -141,24 +141,24 @@ try {
 
     <script>
     function mudarAba(evento, idAba) {
-        // 1. Esconde absolutamente todas as abas
+       
         var conteudos = document.getElementsByClassName("conteudo-aba");
         for (var i = 0; i < conteudos.length; i++) {
             conteudos[i].style.display = "none";
         }
 
-        // 2. Remove a linha azul de todos os títulos
+      
         var botoes = document.getElementsByClassName("btn-link-aba");
         for (var i = 0; i < botoes.length; i++) {
             botoes[i].classList.remove("active");
         }
 
-        // 3. Mostra apenas a aba clicada e bota a linha azul nela
+      
         document.getElementById(idAba).style.display = "block";
         evento.currentTarget.classList.add("active");
     }
 
-    // Funções do Modal (Mantenha aqui para o botão "Ver Resolução" funcionar)
+   
     function abrirMinhaSolucao(botao) {
         var textoCompleto = botao.getAttribute('data-solucao');
         document.getElementById('textoSolucaoModal').textContent = textoCompleto;
@@ -172,16 +172,16 @@ try {
         if (event.target == modal) { modal.style.display = 'none'; }
     }
 
-    // Esse código roda automático assim que a página termina de carregar
+   
 window.addEventListener("DOMContentLoaded", function() {
-    // 1. Verifica se existe o termo "?busca=" na URL do navegador
+    
     const urlParams = new URLSearchParams(window.location.search);
     
     if (urlParams.has('busca') && urlParams.get('busca') !== '') {
-        // 2. Cria um evento falso para o JavaScript entender o clique
+ 
         const eventoFalso = { currentTarget: document.querySelector(".btn-link-aba:nth-child(2)") };
         
-        // 3. Executa a sua função mudarAba jogando direto para o histórico
+    
         mudarAba(eventoFalso, 'aba-historico');
     }
 });
