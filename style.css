@@ -1,0 +1,155 @@
+/* style.css */
+
+/* 1. Configurações Gerais (Reset de margens e definição da fonte) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8; /* Fundo levemente acinzentado/azulado da empresa */
+    color: #333;
+    padding-bottom: 50px;
+}
+
+/* 2. Barra do Topo (Header) */
+.topo-sistema {
+    background-color: #ffffff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.topo-sistema .logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e3a8a; /* Azul escuro corporativo */
+}
+
+.topo-sistema .usuario-logado {
+    background-color: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #475569;
+}
+
+/* 3. Área de Conteúdo Centralizada */
+.conteudo-principal {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* 4. Os Cards (Formulário e Histórico) - Iguais aos da imagem */
+.card-formulario, .card-historico {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px; /* Cantos arredondados suaves */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    margin-bottom: 30px;
+    border: 1px solid #e2e8f0;
+}
+
+h2 {
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3b82f6; /* Linha azul de destaque */
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+/* 5. Estilização dos Campos do Formulário */
+.campo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b6947;
+    margin-bottom: 6px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, textarea :focus {
+    border-color: #3b82f6; /* Borda azul ao clicar no campo */
+    background-color: #ffffff;
+}
+
+textarea {
+    height: 90px;
+    resize: vertical; /* Permite esticar apenas para baixo */
+}
+
+/* 6. Botão de Enviar (Estilo Verde Sucesso da foto) */
+.botao-enviar {
+    background-color: #10b981; /* Verde igual ao "Enviar Pedido" da foto */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.botao-enviar:hover {
+    background-color: #059669; /* Verde um pouco mais escuro ao passar o mouse */
+}
+
+/* 7. Tabela de Histórico */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 00;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+tr:hover {
+    background-color: #f8fafc; /* Efeito visual ao passar o mouse nas linhas */
+}
+
+.col-data {
+    color: #64748b;
+    font-size: 13px;
+    white-space: nowrap; /* Impede a data de quebrar em duas linhas */
+}
+
+.col-usuario {
+    color: #1e293b;
+}
