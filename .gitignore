@@ -1,0 +1,4 @@
+# Ignorar arquivos de configuração do VS Code ou do sistema operativo
+.vscode/
+Thumbs.db
+.DS_Store

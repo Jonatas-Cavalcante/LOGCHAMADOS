@@ -1,6 +1,6 @@
-/* style.css */
-
-/* 1. Configurações Gerais (Reset de margens e definição da fonte) */
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS & RESET
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -9,12 +9,21 @@
 }
 
 body {
-    background-color: #f0f4f8; /* Fundo levemente acinzentado/azulado da empresa */
+    background-color: #f0f4f8; /* Fundo corporativo levemente azulado */
     color: #333;
     padding-bottom: 50px;
 }
 
-/* 2. Barra do Topo (Header) */
+/* Área de Conteúdo Centralizada */
+.conteudo-principal {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. BARRA DO TOPO (HEADER)
+   ========================================================================== */
 .topo-sistema {
     background-color: #ffffff;
     padding: 15px 40px;
@@ -39,33 +48,109 @@ body {
     color: #475569;
 }
 
-/* 3. Área de Conteúdo Centralizada */
-.conteudo-principal {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 20px;
+/* ==========================================================================
+   3. NAVEGAÇÃO POR ABAS (TABS)
+   ========================================================================== */
+/* --- NOVA ESTRUTURA DE ABAS POR TÍTULO --- */
+
+.abas-titulos {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 15px;
 }
 
-/* 4. Os Cards (Formulário e Histórico) - Iguais aos da imagem */
-.card-formulario, .card-historico {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 8px; /* Cantos arredondados suaves */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    margin-bottom: 30px;
-    border: 1px solid #e2e8f0;
-}
-
-h2 {
+/* Transforma o botão para parecer um título h2 comum */
+.btn-link-aba {
+    background: none;
+    border: none;
     font-size: 16px;
-    color: #1e293b;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #3b82f6; /* Linha azul de destaque */
+    font-weight: bold;
+    color: #94a3b8; /* Cor cinza para o que não está selecionado */
+    cursor: pointer;
     padding-bottom: 8px;
-    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
 }
 
-/* 5. Estilização dos Campos do Formulário */
+.btn-link-aba:hover {
+    color: #3b82f6;
+}
+
+/* Aba ativa: ganha a cor escura e a linha azul embaixo igual ao seu h2 antigo */
+.btn-link-aba.active {
+    color: #1e293b;
+    border-bottom: 2px solid #3b82f6; 
+}
+
+/* Lógica de exibição */
+.conteudo-aba {
+    display: none;
+}
+
+.conteudo-aba.active {
+    display: block;
+}
+
+/* ==========================================================================
+   4. CARDS (FORMULÁRIO E HISTÓRICO)
+   ========================================================================== */
+/* ==========================================================================
+   CARD ÚNICO COM ABAS INTEGRADAS
+   ========================================================================== */
+.card-sistema-abas {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e2e8f0;
+    overflow: hidden; /* Garante que os cantos das abas acompanhem o card */
+}
+
+/* Container que simula o topo do card */
+.abas-cabecalho {
+    display: flex;
+    background-color: #f8fafc; /* Cor de fundo das abas inativas */
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Botões que formam as abas de escolha */
+.btn-aba {
+    background: none;
+    border: none;
+    padding: 15px 25px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.btn-aba:hover {
+    background-color: #f1f5f9;
+    color: #3b82f6;
+}
+
+/* A aba selecionada ganha destaque e se integra ao corpo do card branco */
+.btn-aba.active {
+    background-color: #ffffff;
+    color: #3b82f6;
+    border-bottom: 1px solid transparent; /* Remove a linha de baixo para unir ao card */
+}
+
+/* Espaçamento interno do conteúdo de cada aba */
+.conteudo-aba {
+    display: none;
+    padding: 30px 25px; /* Deixa o espaço interno perfeito */
+}
+
+.conteudo-aba.active {
+    display: block;
+}
+
+/* ==========================================================================
+   5. ELEMENTOS DE FORMULÁRIO & BOTÕES
+   ========================================================================== */
 .campo {
     margin-bottom: 15px;
 }
@@ -74,7 +159,7 @@ label {
     display: block;
     font-size: 13px;
     font-weight: 600;
-    color: #4b6947;
+    color: #475569;
     margin-bottom: 6px;
 }
 
@@ -87,25 +172,26 @@ input[type="text"], textarea {
     font-size: 14px;
     color: #334155;
     outline: none;
-    transition: border-color 0.2s;
+    transition: all 0.2s;
 }
 
-input[type="text"]:focus, textarea :focus {
-    border-color: #3b82f6; /* Borda azul ao clicar no campo */
+/* Corrigido o seletor do foco do textarea */
+input[type="text"]:focus, textarea:focus {
+    border-color: #3b82f6;
     background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 textarea {
-    height: 90px;
-    resize: vertical; /* Permite esticar apenas para baixo */
+    height: 110px;
+    resize: vertical;
 }
 
-/* 6. Botão de Enviar (Estilo Verde Sucesso da foto) */
 .botao-enviar {
-    background-color: #10b981; /* Verde igual ao "Enviar Pedido" da foto */
+    background-color: #10b981; /* Verde Sucesso */
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 22px;
     font-size: 14px;
     font-weight: 600;
     border-radius: 6px;
@@ -114,10 +200,12 @@ textarea {
 }
 
 .botao-enviar:hover {
-    background-color: #059669; /* Verde um pouco mais escuro ao passar o mouse */
+    background-color: #059669;
 }
 
-/* 7. Tabela de Histórico */
+/* ==========================================================================
+   6. TABELA DE HISTÓRICO
+   ========================================================================== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -134,22 +222,84 @@ th, td {
 th {
     background-color: #f8fafc;
     color: #64748b;
-    font-weight: 00;
+    font-weight: 600;
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 0.5px;
 }
 
 tr:hover {
-    background-color: #f8fafc; /* Efeito visual ao passar o mouse nas linhas */
+    background-color: #f8fafc;
 }
 
 .col-data {
     color: #64748b;
     font-size: 13px;
-    white-space: nowrap; /* Impede a data de quebrar em duas linhas */
+    white-space: nowrap;
 }
 
 .col-usuario {
     color: #1e293b;
+}
+
+/* Botão "Ver Resolução" dentro da tabela */
+.btn-ver-solucao {
+    background-color: #f1f5f9;
+    color: #3b82f6;
+    border: 1px solid #e2e8f0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.btn-ver-solucao:hover {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+/* ==========================================================================
+   7. MODAL FLUTUANTE (DETALHES DA SOLUÇÃO)
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999; /* Garante que fica por cima das abas */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6); /* Fundo escuro com transparência */
+    backdrop-filter: blur(4px);
+}
+
+.modal-conteudo {
+    background-color: #ffffff;
+    margin: 8% auto;
+    padding: 24px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 65vh; /* Altura máxima da janela */
+    overflow-y: auto; /* Adiciona o SCROLL vertical se o texto for gigante */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.botao-fechar {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    color: #94a3b8;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.botao-fechar:hover {
+    color: #64748b;
 }
