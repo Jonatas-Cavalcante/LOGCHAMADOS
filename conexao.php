@@ -1,10 +1,10 @@
 <?php
 
 $host = 'localhost';
-$port = '3308'; 
+$port = '3307'; 
 $db_name = 'sistema_chamados'; 
 $username = 'root'; 
-$password = 'senha'; 
+$password = ''; 
 
 try {
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db_name;charset=utf8", $username, $password);
